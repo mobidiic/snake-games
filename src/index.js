@@ -18,6 +18,12 @@ down.src="src/audio/down.mp3"
 left.src="src/audio/left.mp3"
 right.src="src/audio/right.mp3"
 
+const background = new Image()
+background.src = "src/img/background.png"
+background.width = "608"
+background.height = "544"
+
+
 
 let snake = []
 snake[0] ={
@@ -57,6 +63,8 @@ function direction(e){
 
 function draw(){
 
+  ctx.drawImage(background, 0, 0)
+
   for(let i=0; i<snake.length; i++){
     ctx.fillStyle = (i==0) ? "#f2f2f2" : "#e0e0e0"
     ctx.fillRect(snake[i].x, snake[i].y, box, box)
@@ -64,7 +72,7 @@ function draw(){
     ctx.strokeRect(snake[i].x, snake[i].y, box, box)
   }
   ctx.fillRect(food.x, food.y, box, box)
-  ctx.fillStyle = "#ffd400"
+
   let snakeX = snake[0].x
   let snakeY = snake[0].y
 
@@ -114,10 +122,7 @@ function draw(){
     dead.play()
   }
 
-
   snake.unshift(newHead)
-
-
 }
 
 
