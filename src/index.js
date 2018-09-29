@@ -137,8 +137,8 @@ function draw(){
     dead.play()
     popMessage.style.display="flex"
     deadMessage.innerHTML = `Your score is <span>${score}</span>..!!`
-    popMessage.addEventListener('keydown',function(e){
-      if(e.keyCode==13){
+    document.addEventListener('keydown',function(e){
+      if(e.keyCode == 13){
         location.reload()
       }
     })
