@@ -3,6 +3,10 @@ const ctx = cvs.getContext('2d')
 
 const box = 16
 
+const popMessage = document.getElementById('dead-pop')
+const deadMessage = document.getElementById('dead-message')
+const restartButton = document.getElementById('restart-button')
+
 
 const dead = new Audio()
 const eat = new Audio()
@@ -66,7 +70,7 @@ function draw(){
   ctx.drawImage(background, 0, 0)
 
   for(let i=0; i<snake.length; i++){
-    ctx.fillStyle = (i==0) ? "#f2f2f2" : "#e0e0e0"
+    ctx.fillStyle = (i==0) ? "#e0e0e0" : "#dbdbdb"
     ctx.fillRect(snake[i].x, snake[i].y, box, box)
     ctx.strokeStyle = "#a3a3a3"
     ctx.strokeRect(snake[i].x, snake[i].y, box, box)
@@ -130,6 +134,8 @@ function draw(){
   if(snakeX < 0 || snakeX > 37*box || snakeY < 0 || snakeY > 33* box || collision(newHead, snake)){
     clearInterval(game)
     dead.play()
+    popMessage.style.display="flex"
+    deadMessage.innerHTML = `Your score is <span>${score}</span>..!!`
   }
 
   snake.unshift(newHead)
@@ -137,3 +143,8 @@ function draw(){
 
 
 let game = setInterval(draw, 100)
+
+
+restartButton.addEventListener('click',function(){
+  location.reload()
+})
