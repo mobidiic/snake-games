@@ -1,0 +1,19 @@
+{
+  "name": "snake-games",
+  "version": "1.0.0",
+  "description": "javascript snake games",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobidiic/snake-games.git"
+  },
+  "author": "mobidiic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mobidiic/snake-games/issues"
+  },
+  "homepage": "https://github.com/mobidiic/snake-games"
+}
