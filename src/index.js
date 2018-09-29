@@ -65,6 +65,7 @@ function direction(e){
 }
 
 
+
 function draw(){
 
   ctx.drawImage(background, 0, 0)
@@ -136,6 +137,11 @@ function draw(){
     dead.play()
     popMessage.style.display="flex"
     deadMessage.innerHTML = `Your score is <span>${score}</span>..!!`
+    popMessage.addEventListener('keydown',function(e){
+      if(e.keyCode==13){
+        location.reload()
+      }
+    })
   }
 
   snake.unshift(newHead)
@@ -143,6 +149,8 @@ function draw(){
 
 
 let game = setInterval(draw, 100)
+
+
 
 
 restartButton.addEventListener('click',function(){
