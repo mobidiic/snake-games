@@ -100,6 +100,16 @@ function draw(){
     snake.pop()
   }
 
+  for(let i=0; i<snake.length; i++){
+    if(snake[i].x == food.x && snake[i].y == food.y){
+      food = {
+        x: Math.floor(Math.random()*36+1)*box,
+        y: Math.floor(Math.random()*32+1)*box
+      }
+    }
+  }
+
+
   let scoreView = document.querySelector('.score')
   scoreView.innerHTML = `score : <span>${score}</span>`
 
